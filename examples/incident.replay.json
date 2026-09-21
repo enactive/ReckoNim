@@ -1,0 +1,50 @@
+[
+  {
+    "key": "af4fcaa5",
+    "request": {
+      "state": {
+        "service": "orders",
+        "log": "calendar: chaos drill \"region-evac\" booked 22:00-23:00\n23:04:11 eu-west-1 orders-api: 0/12 instances healthy\n23:04:12 traffic shifted to eu-central-1, order_success_rate unchanged\n23:06:02 eu-west-1 still 0/12 healthy\ndrill owner unreachable; no confirmation either way\n"
+      },
+      "model": "jev-latest",
+      "questions": {
+        "how_should_on_call@alert.log#8ae01f5b": {
+          "type": "score",
+          "instructions": {
+            "inspect": "log",
+            "question": "How should on-call respond to this right now?"
+          },
+          "criteria": [
+            "Ignore: this is the scheduled drill, nothing is actually broken",
+            "Ticket it for business hours",
+            "Page on-call now: a region is genuinely down"
+          ]
+        }
+      }
+    },
+    "response": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "how_should_on_call@alert.log#8ae01f5b": {
+          "type": "score",
+          "score": 1.16,
+          "confidence": 0.0,
+          "legend": {
+            "0": "Ignore: this is the scheduled drill, nothing is actually broken",
+            "1": "Ticket it for business hours",
+            "2": "Page on-call now: a region is genuinely down"
+          },
+          "probabilities": {
+            "0": 0.38,
+            "1": 0.07,
+            "2": 0.55
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 450,
+        "output_tokens": 31
+      }
+    }
+  }
+]

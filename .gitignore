@@ -1,0 +1,16 @@
+.env
+.nimble/
+nimcache/
+result
+
+# Nim writes binaries beside their source, with no extension
+tests/test_*
+!tests/test_*.nim
+examples/*
+!examples/*.nim
+!examples/*.replay.json
+!examples/corpus/
+examples/corpus/corpus
+examples/corpus/fetch
+examples/corpus/dev.replay.json
+.direnv/

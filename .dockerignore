@@ -1,0 +1,15 @@
+.git
+.direnv
+.nimble
+.panopt
+nimcache
+result
+
+# Never bake a key into an image.
+.env
+
+# Nim writes binaries beside their source, with no extension.
+examples/*
+!examples/*.nim
+tests/test_*
+!tests/test_*.nim
